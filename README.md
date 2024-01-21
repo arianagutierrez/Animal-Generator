@@ -1,6 +1,6 @@
 ## Animal Generator
 
-A [Animal Generator]() build with Node.js, Express and APIs.
+An [Animal Generator]() build with Node.js, Express and APIs.
 
 Lesson source: [Building a Node.js app](https://www.youtube.com/watch?v=wYALykLb5oY) by [Coder Coder](https://www.youtube.com/@TheCoderCoder). 
 
