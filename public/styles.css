@@ -1,0 +1,135 @@
+@import url('https://fonts.cdnfonts.com/css/jungle-roar');
+@import url('https://fonts.cdnfonts.com/css/southpole-explorer');
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: center / cover url('/background.jpg');
+    font-family: 'Southpole-Explorer', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(255, 255, 255, .5);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(63, 45, 21);
+}
+
+.generator {
+    padding: 2rem 2rem 0;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Jungle Roar', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0 0 1.25rem 0;
+    color: rgb(53, 40, 23);
+    text-shadow: 3px 1.5px 10px rgb(255, 255, 255);
+}
+
+#searchForm {
+    padding: 2rem 0;
+    font-size:  2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+}
+#labelSearch {
+    text-shadow: 2px 2px 6px rgb(255, 255, 255);
+}
+
+#newSearchTerm, #btnLoad {
+    padding: .5rem .7rem;
+    border-radius: 10px;
+    font-family: 'Southpole-Explorer', sans-serif;
+    text-transform: uppercase;
+    font-size:  1.25rem;
+}
+#newSearchTerm {
+    letter-spacing: 1px;
+}
+#btnLoad {
+    color: white;
+    letter-spacing: 3px;
+    background-color: rgb(63, 45, 21);
+    border: 2px solid white;
+    transform: translateY(0);
+    transition: all .3s ease-in-out;
+}
+#btnLoad:hover{
+    background-color: rgb(32, 111, 17);
+    border: 2px solid black;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.errorGenerator {
+    color: rgb(124, 15, 15);
+    margin: auto;
+    font-size: 1.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 2px 0px 8px rgb(255, 255, 255);
+}
+.errorGenerator.errorName{
+    margin: .65rem 0;
+}
+
+#animalWrapper {
+    width: 80%;
+	max-width: 25rem;
+	display: block;
+	margin: auto;
+    padding: 1.5rem 0;
+}
+
+#animalName {
+	background: rgb(255, 255, 255);
+	padding: 0.35rem;
+	border-radius: 1rem 1rem 0 0;
+    letter-spacing: 1.25px;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+#animalImage {
+	max-width: 100%;
+	border-radius: 0 0 1rem 1rem;
+}
+
+@media (max-width: 550px) {
+	h1 {
+		font-size: 4.5rem;
+	}
+    #searchForm {
+        flex-direction: column;
+    }
+	#animalWrapper {
+		width: 50%;
+	}
+}
+
+@media (max-width: 425px) {
+	h1 {
+		font-size: 3.5rem;
+	}
+}

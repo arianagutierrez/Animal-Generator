@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icon-generator.png" type="image/x-icon">
+    <title>Animal Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="generator">
+        <h1>Animal Generator</h1>
+
+        <form id="searchForm">
+            <label for="newSearchTerm" id="labelSearch">Search:</label>
+            <input type="text" id="newSearchTerm" name="newSearchTerm" placeholder="enter an animal name" required>
+            <button type="submit" id="btnLoad">Generate</button>
+        </form>
+        
+        <span class="errorGenerator errorName" style="display: none;">Animal not available!</span>
+        <span class="errorGenerator errorSearch" style="display: none;">Please enter only one word!</span>
+    
+        <div id="animalWrapper"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
