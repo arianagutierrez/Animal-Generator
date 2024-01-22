@@ -1,2 +1,2 @@
 [build]
-  command = "npm dev"
+  command = "npm run dev"
