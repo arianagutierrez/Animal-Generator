@@ -4,14 +4,14 @@
   "description": "animal-generator",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "arianagg",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.0.3"
   },
   "devDependencies": {
     "dotenv": "^16.3.2",
