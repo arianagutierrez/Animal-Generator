@@ -21,42 +21,44 @@ form.addEventListener('submit', function (event) {
 });
 
 //to start the request
-document
-  .querySelector('#searchForm')
-  .addEventListener('submit', async (event) => {
-    event.preventDefault();
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-    //to update the search
-    const newSearchValue = newSearchTerm.value;
-    const updateResponse = await fetch('/setsearchterm', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ newSearchValue }),
-    });
+  //to update the search
+  const newSearchValue = newSearchTerm.value;
+  const updateResponse = await fetch('/setsearchterm', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ newSearchValue }),
+  });
 
-    //to generate
-    const updateData = await updateResponse.json();
-    if (updateData.success) {
-      await getAnimalInfo()
-    } else {
-      console.error('The search term is invalid! Try again!');
-    }
+  //to generate
+  const updateData = await updateResponse.json();
+  if (updateData.success) {
+    await getAnimalInfo();
+  } else {
+    console.error('The search term is invalid! Try again!');
+  }
 });
 
 //to remove the previous data
 document.querySelector('#btnLoad').addEventListener('click', () => {
-  if (document.querySelector('#animalName') !== null) {
-    document.querySelector('#animalName').remove();
+  let animalName = document.querySelector('#animalName');
+  let animalImage = document.querySelector('#animalImage');
+
+  if (animalName !== null) {
+    animalName.remove();
   }
-  if (document.querySelector('#animalImage') !== null) {
-    document.querySelector('#animalImage').remove();
+  if (animalImage !== null) {
+    animalImage.remove();
   }
 });
 
-//to get the animal's info
+//Animal's Info
 async function getAnimalInfo() {
+  //to get the information from the data
   const [nameResponse, imageResponse] = await Promise.all([
     fetch('/animalname'),
     fetch('/animalimage'),
@@ -83,7 +85,8 @@ async function getAnimalInfo() {
   name.textContent = animalName;
 
   //to get animalImage
-  let animalImage = imageData.photos[Math.floor(Math.random() * imageData.photos.length)];
+  let animalImage =
+    imageData.photos[Math.floor(Math.random() * imageData.photos.length)];
   let animalImageURL = animalImage.src.medium;
   let animalAlt = animalImage.alt;
   console.log(animalImage);
