@@ -20,11 +20,12 @@ app.post('/setsearchterm', (request, response) => {
   const { newSearchValue } = request.body;
   if (newSearchValue) {
     searchTerm = newSearchValue;
+    console.log('Search Term:', searchTerm);
     response.json({ success: true, searchTerm });
   } else {
     response
       .status(400)
-      .json({ success: false, error: 'The new search term was not provided!' });
+      .json({ success: false, error: 'The search term was not provided!' });
   }
 });
 
