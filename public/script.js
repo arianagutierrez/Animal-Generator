@@ -2,6 +2,7 @@ const form = document.getElementById('searchForm');
 const newSearchTerm = document.getElementById('newSearchTerm');
 const errorSearch = document.querySelector('.errorSearch');
 const errorName = document.querySelector('.errorName');
+const animalWrapper = document.querySelector('#animalWrapper');
 
 //to declare the one-word rule allowed in the search
 form.addEventListener('submit', function (event) {
@@ -12,21 +13,21 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
     errorName.style.display = 'block';
     errorSearch.style.display = 'block';
-    console.log('Please enter only one word!')
+    console.log('Please enter only one word!');
   } else {
     errorName.style.display = 'none';
     errorSearch.style.display = 'none';
   }
 });
 
-//to generate the animal's info
+//to start the request
 document
   .querySelector('#searchForm')
   .addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    //to update the search
     const newSearchValue = newSearchTerm.value;
-
     const updateResponse = await fetch('/setsearchterm', {
       method: 'POST',
       headers: {
@@ -35,13 +36,14 @@ document
       body: JSON.stringify({ newSearchValue }),
     });
 
+    //to generate
     const updateData = await updateResponse.json();
     if (updateData.success) {
       await getAnimalName();
     } else {
-      console.error(updateData.error);
+      console.error('The search term is invalid! Try again!');
     }
-  });
+});
 
 //to remove the previous data
 document.querySelector('#btnLoad').addEventListener('click', () => {
@@ -57,11 +59,11 @@ document.querySelector('#btnLoad').addEventListener('click', () => {
 async function getAnimalName() {
   const response = await fetch('/animalname');
   const data = await response.json();
-  
+
   if (!data || data.length === 0) {
-    console.log('Animal not available!')
+    console.log('Animal not available!');
     errorName.style.display = 'block';
-    return
+    return;
   } else {
     errorName.style.display = 'none';
   }
@@ -73,7 +75,7 @@ async function getAnimalName() {
   let animalNameDiv = document.createElement('div');
   animalNameDiv.id = 'animalName';
   animalNameDiv.textContent = animalName;
-  document.querySelector('#animalWrapper').appendChild(animalNameDiv);
+  animalWrapper.appendChild(animalNameDiv);
 
   getAnimalImage();
 }
@@ -91,5 +93,5 @@ async function getAnimalImage() {
   img.id = 'animalImage';
   img.src = animalImageURL;
   img.alt = animalAlt;
-  document.querySelector('#animalWrapper').appendChild(img);
+  animalWrapper.appendChild(img);
 }
