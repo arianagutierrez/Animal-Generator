@@ -39,7 +39,7 @@ document
     //to generate
     const updateData = await updateResponse.json();
     if (updateData.success) {
-      await getAnimalName();
+      await getAnimalInfo()
     } else {
       console.error('The search term is invalid! Try again!');
     }
@@ -55,12 +55,18 @@ document.querySelector('#btnLoad').addEventListener('click', () => {
   }
 });
 
-//to get the animal's name
-async function getAnimalName() {
-  const response = await fetch('/animalname');
-  const data = await response.json();
+//to get the animal's info
+async function getAnimalInfo() {
+  const [nameResponse, imageResponse] = await Promise.all([
+    fetch('/animalname'),
+    fetch('/animalimage'),
+  ]);
 
-  if (!data || data.length === 0) {
+  const nameData = await nameResponse.json();
+  const imageData = await imageResponse.json();
+
+  //to get animalName
+  if (!nameData || nameData.length === 0) {
     console.log('Animal not available!');
     errorName.style.display = 'block';
     return;
@@ -68,23 +74,16 @@ async function getAnimalName() {
     errorName.style.display = 'none';
   }
 
-  let animalItems = data[Math.floor(Math.random() * data.length)];
+  let animalItems = nameData[Math.floor(Math.random() * nameData.length)];
   let animalName = animalItems.name;
   console.log(animalName);
 
-  let animalNameDiv = document.createElement('div');
-  animalNameDiv.id = 'animalName';
-  animalNameDiv.textContent = animalName;
-  animalWrapper.appendChild(animalNameDiv);
+  let name = document.createElement('p');
+  name.id = 'animalName';
+  name.textContent = animalName;
 
-  getAnimalImage();
-}
-
-//to get the animal's image
-async function getAnimalImage() {
-  const response = await fetch('/animalimage');
-  const data = await response.json();
-  let animalImage = data.photos[Math.floor(Math.random() * data.photos.length)];
+  //to get animalImage
+  let animalImage = imageData.photos[Math.floor(Math.random() * imageData.photos.length)];
   let animalImageURL = animalImage.src.medium;
   let animalAlt = animalImage.alt;
   console.log(animalImage);
@@ -93,5 +92,7 @@ async function getAnimalImage() {
   img.id = 'animalImage';
   img.src = animalImageURL;
   img.alt = animalAlt;
+
+  animalWrapper.appendChild(name);
   animalWrapper.appendChild(img);
 }
