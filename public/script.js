@@ -36,6 +36,7 @@ form.addEventListener('submit', async (event) => {
 
   //to generate
   const updateData = await updateResponse.json();
+  console.log(updateData)
   if (updateData.success) {
     await getAnimalInfo();
   } else {
