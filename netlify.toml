@@ -1,3 +1,9 @@
-[build]
-  command = "npm start"
-  functions = "functions"
+build:
+  base: /opt/build/repo/public
+  command: npm start
+  commandOrigin: config
+  environment:
+    - API_KEY_IMAGE
+    - API_KEY_NAME
+  publish: /opt/build/repo/public
+  publishOrigin: default
