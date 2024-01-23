@@ -5,13 +5,12 @@ dotenv.config({ path: '../process.env' });
 const express = require('express');
 const router = express.Router();
 
-let searchTerm = '';
+let searchTerm = [];
 
 router.post('/setSearchTerm', (request, response) => {
   console.log('Received POST request:', request.body);
 
   const { newSearchValue } = request.body;
-  console.log('New search value:', newSearchValue);
   
   if (newSearchValue) {
     searchTerm = newSearchValue;
