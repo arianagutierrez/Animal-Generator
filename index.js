@@ -1,4 +1,3 @@
-const path = require('path');
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -7,10 +6,10 @@ const app = express();
 const port = process.env.PORT || 3000
 
 app.use(express.static('public'));
-
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
+app.get("/", (req, res) => { res.send("Express on Vercel"); }); 
 
 //the user's request to the server:
 app.use(express.json());
@@ -63,3 +62,5 @@ app.get('/animalimage', async (request, response) => {
   console.log(animalImageResponse);
   response.json(animalImageResponse);
 });
+
+module.exports = app;
