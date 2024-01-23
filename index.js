@@ -14,6 +14,7 @@ app.listen(port, () => {
 app.use(express.json());
 
 let searchTerm = '';
+
 app.post('/setsearchterm', (request, response) => {
   const { newSearchValue } = request.body;
   if (newSearchValue) {
