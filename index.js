@@ -12,19 +12,19 @@ app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
 
-// let searchTerm = '';
+let searchTerm = '';
 
-// app.post('/setsearchterm', (request, response) => {
-//   const { newSearchValue } = request.body;
-//   if (newSearchValue) {
-//     searchTerm = newSearchValue;
-//     response.json({ success: true, searchTerm });
-//   } else {
-//     response
-//       .status(400)
-//       .json({ success: false, error: 'The search term was not provided!' });
-//   }
-// });
+app.post('/setsearchterm', (request, response) => {
+  const { newSearchValue } = request.body;
+  if (newSearchValue) {
+    searchTerm = newSearchValue;
+    response.json({ success: true, searchTerm });
+  } else {
+    response
+      .status(400)
+      .json({ success: false, error: 'The search term was not provided!' });
+  }
+});
 
 //access to the APIs:
 app.get('/animalname', async (request, response) => {
@@ -58,20 +58,6 @@ app.get('/animalimage', async (request, response) => {
   const animalImageResponse = await fetchAPI.json();
   console.log(animalImageResponse);
   response.json(animalImageResponse);
-});
-
-let searchTerm = '';
-
-app.post('/setsearchterm', (request, response) => {
-  const { newSearchValue } = request.body;
-  if (newSearchValue) {
-    searchTerm = newSearchValue;
-    response.json({ success: true, searchTerm });
-  } else {
-    response
-      .status(400)
-      .json({ success: false, error: 'The search term was not provided!' });
-  }
 });
 
 module.exports = app; 
