@@ -7,7 +7,6 @@ app.use(express.json());
 
 const apiRouter = require('./api/apiRouter');
 app.use('/api', apiRouter);
-console.log(app.use)
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
