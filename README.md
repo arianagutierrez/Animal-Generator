@@ -8,15 +8,13 @@ Special thanks to the professor!
 
 NOTE: This project is an animal generator inspired by a coding tutorial. Due to the unavailability of APIs on RapidAPI used in the original video, I decided to create my own version using alternative APIs.
 
-### To start the app locally 
+### To start the Local Host
 
 ```bash
 npm run dev
-
 //or
-
 npm run start
 ```
 ### And go to http://localhost:3000
 
-<picture> <img align="center" src="./localhost_3000_.png" width = 300px></picture>
+<picture> <img align="center" src="./public/images/web-app.png" width = 300px></picture>
