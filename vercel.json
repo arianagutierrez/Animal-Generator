@@ -7,13 +7,21 @@
       }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "index.js"
-      },
-      {
-        "src": "/",
-        "dest": "index.js"
-      }
+        {
+          "src": "/setsearchterm",
+          "dest": "index.js"
+        },
+        {
+          "src": "/animalname",
+          "dest": "index.js"
+        },
+        {
+          "src": "/animalimage",
+          "dest": "index.js"
+        },
+        {
+          "src": "/(.*)",
+          "dest": "index.js"
+        }
     ]
 }
