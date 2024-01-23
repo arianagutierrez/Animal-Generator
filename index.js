@@ -60,4 +60,4 @@ app.get('/animalimage', async (request, response) => {
   response.json(animalImageResponse);
 });
 
-module.exports = app;
+module.exports = app; 
