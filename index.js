@@ -6,24 +6,25 @@ const app = express();
 const port = process.env.PORT || 3000
 
 app.use(express.static('public'));
-app.use(express.json()); //the user's request to the server:
+app.use(express.json()); //the user's request to the server
+
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
 
-let searchTerm = '';
+// let searchTerm = '';
 
-app.post('/setsearchterm', (request, response) => {
-  const { newSearchValue } = request.body;
-  if (newSearchValue) {
-    searchTerm = newSearchValue;
-    response.json({ success: true, searchTerm });
-  } else {
-    response
-      .status(400)
-      .json({ success: false, error: 'The search term was not provided!' });
-  }
-});
+// app.post('/setsearchterm', (request, response) => {
+//   const { newSearchValue } = request.body;
+//   if (newSearchValue) {
+//     searchTerm = newSearchValue;
+//     response.json({ success: true, searchTerm });
+//   } else {
+//     response
+//       .status(400)
+//       .json({ success: false, error: 'The search term was not provided!' });
+//   }
+// });
 
 //access to the APIs:
 app.get('/animalname', async (request, response) => {
@@ -59,8 +60,18 @@ app.get('/animalimage', async (request, response) => {
   response.json(animalImageResponse);
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Express on Vercel");
-// });
+let searchTerm = '';
+
+app.post('/setsearchterm', (request, response) => {
+  const { newSearchValue } = request.body;
+  if (newSearchValue) {
+    searchTerm = newSearchValue;
+    response.json({ success: true, searchTerm });
+  } else {
+    response
+      .status(400)
+      .json({ success: false, error: 'The search term was not provided!' });
+  }
+});
 
 module.exports = app; 
