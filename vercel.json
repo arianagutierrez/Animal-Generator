@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/api/(.*)", "dest": "/apiRouter.js" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    { "src": "/(.*)", "dest": "/index.js" },
+    { "src": "/api/(.*)", "dest": "/apiRouter.js" }
   ]
 }
