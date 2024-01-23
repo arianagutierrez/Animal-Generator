@@ -1,6 +1,6 @@
 ## Animal Generator
 
-An animal generator build with Node.js, Express and APIs.
+A web app build with Node.js, Express and APIs.
 
 Lesson source: [Building a Node.js app](https://www.youtube.com/watch?v=wYALykLb5oY) by [Coder Coder](https://www.youtube.com/@TheCoderCoder). 
 
@@ -16,5 +16,5 @@ npm run dev
 npm run start
 ```
 ### And go to http://localhost:3000
-
-<picture> <img align="center" src="./public/images/web-app.png" width = 300px></picture>
+<br>
+<picture> <img align="center" src="./public/images/web-app.png"> </picture>
