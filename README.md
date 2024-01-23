@@ -8,7 +8,7 @@ Special thanks to the professor!
 
 NOTE: This project is an animal generator inspired by a coding tutorial. Due to the unavailability of APIs on RapidAPI used in the original video, I decided to create my own version using alternative APIs.
 
-### To start the localhost
+## To start the localhost
 
 ```bash
 npm run dev
