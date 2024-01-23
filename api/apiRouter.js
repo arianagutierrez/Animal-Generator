@@ -1,6 +1,7 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
+require("dotenv").config();
+const dotenv = require('dotenv');
+dotenv.config({ path: '../process.env' });
+
 const express = require('express');
 const router = express.Router();
 
