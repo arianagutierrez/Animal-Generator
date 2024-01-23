@@ -6,7 +6,7 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-const apiRouter = require('./api/apiRouter');
+const apiRouter = require('./api');
 app.use('/api', apiRouter);
 
 app.listen(port, () => {
