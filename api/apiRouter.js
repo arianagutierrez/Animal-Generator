@@ -6,7 +6,7 @@ const router = express.Router();
 
 let searchTerm = '';
 
-router.post('/setsearchterm', (request, response) => {
+router.post('/setSearchTerm', (request, response) => {
   const { newSearchValue } = request.body;
   if (newSearchValue) {
     searchTerm = newSearchValue;
@@ -18,7 +18,7 @@ router.post('/setsearchterm', (request, response) => {
   }
 });
 
-router.get('/animalname', async (request, response) => {
+router.get('/animalName', async (request, response) => {
     const fetchAPI = await fetch(
         `https://animals-by-api-ninjas.p.rapidapi.com/v1/animals?name=${searchTerm}`,
         {
@@ -35,7 +35,7 @@ router.get('/animalname', async (request, response) => {
     response.json(animalNameResponse);
 });
 
-router.get('/animalimage', async (request, response) => {
+router.get('/animalImage', async (request, response) => {
     const fetchAPI = await fetch(
         `https://api.pexels.com/v1/search?query=${searchTerm}&per_page=20&total_results=30`,
         {
