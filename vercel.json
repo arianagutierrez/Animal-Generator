@@ -15,7 +15,7 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "dest": "/api/apiRouter.js"
+            "dest": "/api"
         }
     ]
 }
