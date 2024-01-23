@@ -26,7 +26,7 @@ form.addEventListener('submit', async (event) => {
 
   //to update the search
   const newSearchValue = newSearchTerm.value;
-  const updateResponse = await fetch('/setsearchterm', {
+  const updateResponse = await fetch('/api/setsearchterm', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -61,10 +61,11 @@ document.querySelector('#btnLoad').addEventListener('click', () => {
 async function getAnimalInfo() {
   //to get the information from the data
   const [nameResponse, imageResponse] = await Promise.all([
-    fetch('/animalname'),
-    fetch('/animalimage'),
+    fetch('/api/animalname'),
+    fetch('/api/animalimage'),
   ]);
-
+  console.log([nameResponse, imageResponse])
+  
   const nameData = await nameResponse.json();
   const imageData = await imageResponse.json();
 
