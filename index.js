@@ -6,12 +6,10 @@ const app = express();
 const port = process.env.PORT || 3000
 
 app.use(express.static('public'));
+app.use(express.json()); //the user's request to the server:
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
-
-//the user's request to the server:
-app.use(express.json());
 
 let searchTerm = '';
 
