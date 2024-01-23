@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
-app.get("/", (req, res) => { res.send("Express on Vercel"); }); 
+// app.get("/", (req, res) => { res.send("Express on Vercel"); }); 
 
 //the user's request to the server:
 app.use(express.json());
