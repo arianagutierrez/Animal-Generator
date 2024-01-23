@@ -60,4 +60,12 @@ app.get('/animalimage', async (request, response) => {
   response.json(animalImageResponse);
 });
 
+app.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello from Express on Vercel");
+});
+
 module.exports = app; 
